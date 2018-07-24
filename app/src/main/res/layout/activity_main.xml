@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="com.example.yhadmin.mvvmdemo.MainActivity">
+
+    <data>
+
+        <import type="java.util.List"/>
+
+        <import type="java.util.Map"/>
+
+        <import type="com.example.yhadmin.mvvmdemo.bean.User"/>
+
+        <import
+            alias="User2"
+            type="com.example.yhadmin.mvvmdemo.bean.bean.User"/>
+
+        <variable
+            name="user"
+            type="User"/>
+
+        <variable
+            name="user2"
+            type="User2"/>
+
+        <variable
+            name="list"
+            type="List&lt;String&gt;"/>
+
+        <variable
+            name="map"
+            type="Map&lt;String,Object&gt;"/>
+
+        <variable
+            name="array"
+            type="String[]"/>
+
+        <variable
+            name="clickListener"
+            type="android.view.View.OnClickListener"/>
+
+        <variable
+            name="handler"
+            type="com.example.yhadmin.mvvmdemo.bean.OnClickHandler"/>
+
+        <variable
+            name="doubleBindBean"
+            type="com.example.yhadmin.mvvmdemo.bean.DoubleBindBean"/>
+        <variable
+            name="doubleBindBean2"
+            type="com.example.yhadmin.mvvmdemo.bean.DoubleBindBean2"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{doubleBindBean.content}"/>
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{doubleBindBean2.username}"/>
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.name}"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.age}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{list[0]}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{list.get(1)}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{map[`key0`]}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{map.get(`key1`)}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{array[0]}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{array[1]}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{`user2:`+user2.name + `年龄`+String.valueOf(user2.age)}"/>
+
+        <Button
+            android:id="@+id/userName_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{clickListener}"
+            android:text="userName"
+            android:textAllCaps="true"/>
+
+        <Button
+            android:id="@+id/age_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{clickListener}"
+            android:text="userAge"
+            android:textAllCaps="true"/>
+
+        <Button
+            android:id="@+id/handler_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{handler::onClickFriend}"
+            android:text="userAge"
+            android:textAllCaps="true"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/show_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"/>
+
+
+    </LinearLayout>
+
+</layout>
